@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
 
   userForm=new FormGroup({
     name:new FormControl('',[Validators.required]),
-    age:new FormControl({value:24,disabled:true},[Validators.required,Validators.min(18),Validators.max(60)])
+    age:new FormControl({value:24,disabled:false},[Validators.required,Validators.min(18),Validators.max(60)])
   })
   ngOnInit(): void {
       

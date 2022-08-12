@@ -14,8 +14,12 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        app-counter{
-            margin: 10px;
-        }
+        
     }
+}
+app-counter{
+    margin: 10px;
+}
+app-counter.ng-touched,input.ng-touched{
+    border: 4px dotted deeppink !important;
 }

@@ -23,14 +23,19 @@ export class CustomAddressFormComponent implements OnInit,ControlValueAccessor,V
 
   constructor() { }
 
+  address= new FormGroup({
+    house: new FormControl('',[Validators.required]),
+    street: new FormControl('',[Validators.required]),
+    city: new FormControl('',[Validators.required]),
+    state: new FormControl('',[Validators.required]),
+    pincode: new FormControl('',[Validators.required,Validators.minLength(6),Validators.maxLength(6)]),
+  })
+
   onTouched = () =>{};
 
   onChangeSubs : Subscription[]=[];
 
-  ngOnDestroy()
-  {
-    for(let sub of this.onChangeSubs) sub.unsubscribe();
-  }
+  
 
   setDisabledState(isDisabled:boolean)
   {
@@ -58,7 +63,7 @@ export class CustomAddressFormComponent implements OnInit,ControlValueAccessor,V
     const sub = this.address.valueChanges.subscribe(onChange);
     this.onChangeSubs.push(sub);
   }
-  
+
   registerOnTouched(onTouched: any): void {
     this.onTouched=onTouched;
   }
@@ -93,15 +98,13 @@ export class CustomAddressFormComponent implements OnInit,ControlValueAccessor,V
   }
   
 
-  address= new FormGroup({
-    house: new FormControl('',[Validators.required]),
-    street: new FormControl('',[Validators.required]),
-    city: new FormControl('',[Validators.required]),
-    state: new FormControl('',[Validators.required]),
-    pincode: new FormControl('',[Validators.required,Validators.minLength(6),Validators.maxLength(6)]),
-  })
+ 
 
   ngOnInit(): void {
+  }
+  ngOnDestroy()
+  {
+    for(let sub of this.onChangeSubs) sub.unsubscribe();
   }
 
 }

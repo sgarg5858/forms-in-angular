@@ -1,0 +1,21 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myForm{
+    border: 5px dotted maroon;
+    height: 200px;
+    width: 200px;
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        app-counter{
+            margin: 10px;
+        }
+    }
+}

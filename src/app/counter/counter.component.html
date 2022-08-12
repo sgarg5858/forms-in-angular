@@ -1,5 +1,5 @@
 <div class="container">
-    <button (click)="decrement()">-</button>
+    <button [disabled]="disabled" (click)="decrement()">-</button>
     <div>{{counter}}</div>   
-    <button  (click)="increment()">+</button> 
+    <button [disabled]="disabled"  (click)="increment()">+</button> 
 </div>

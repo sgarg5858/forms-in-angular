@@ -1,0 +1,13 @@
+<fieldset [formGroup]="address">
+
+    <input type="text" placeholder="house" formControlName="house" (blur)="onTouched()">
+
+    <input type="text" placeholder="street" formControlName="street" (blur)="onTouched()">
+
+    <input type="text" placeholder="city" formControlName="city" (blur)="onTouched()">
+
+    <input type="text"  placeholder="state" formControlName="state" (blur)="onTouched()">
+
+    <input type="text" placeholder="pincode" formControlName="pincode" (blur)="onTouched()">
+
+</fieldset>

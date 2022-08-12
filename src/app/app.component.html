@@ -1,7 +1,9 @@
 <div class="container">
 <div class="myForm">
   <form [formGroup]="userForm">
+
     <input type="text" formControlName="name">
+
     <app-counter [change]="10" formControlName="age"></app-counter>
     <span *ngIf="userForm.controls?.age?.errors?.['min']">
       Min age allowed is 18
@@ -9,6 +11,9 @@
     <span *ngIf="userForm.controls?.age?.errors?.['max']">
      Max age allowed is 60
     </span>
+
+    <app-custom-address-form formControlName="address"></app-custom-address-form>
+
     <button (click)="log()">Log</button>
   </form>
 </div>

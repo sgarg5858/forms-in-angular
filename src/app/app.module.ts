@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TypedFormComponent } from './typed-form/typed-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CounterComponent } from './counter/counter.component';
+import { CustomAddressFormComponent } from './custom-address-form/custom-address-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TypedFormComponent,
-    CounterComponent
+    CounterComponent,
+    CustomAddressFormComponent
   ],
   imports: [
     BrowserModule,

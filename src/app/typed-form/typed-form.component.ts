@@ -16,7 +16,7 @@ export class TypedFormComponent implements OnInit {
       houseNumber : new FormControl("1234",{validators:[Validators.required],asyncValidators:[minLength(5)]}),
       street: new FormControl('Powell st',[Validators.required,Validators.minLength(5)])
     }),
-    formal:new FormControl(false),
+    formal:new FormControl({value:false,disabled:false}),
     foodOptions: new FormArray<FormGroup<{name:FormControl,veg:FormControl}>>([])
   },{updateOn:'blur'})
 

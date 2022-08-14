@@ -21,11 +21,16 @@ import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR
 export class CounterComponent implements OnInit,ControlValueAccessor,Validator {
 
   @Input() change:number=1;
+  @Input() minValue:number=0;
+  @Input() maxValue:number=100;
   @Input() negAllowed:boolean=false;
 
   counter:number=0;
+
   touched:boolean=false;
+
   disabled:boolean=false;
+
   constructor() { }
 
 
@@ -38,9 +43,11 @@ export class CounterComponent implements OnInit,ControlValueAccessor,Validator {
   registerOnChange(fn: any): void {
     this.onChange=fn;
   }
+
   registerOnTouched(fn: any): void {
     this.onTouched=fn;
   }
+
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
 
     if(control.value<0)
@@ -50,9 +57,11 @@ export class CounterComponent implements OnInit,ControlValueAccessor,Validator {
     return null;
 
   }
+
   writeValue(counter: number): void {
     this.counter=counter;
   } 
+
   setDisabledState(isDisabled:boolean)
   {
     this.disabled=isDisabled;

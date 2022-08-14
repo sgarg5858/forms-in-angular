@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormControlStatus, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-typed-form',
@@ -16,12 +16,41 @@ export class TypedFormComponent implements OnInit {
       street: new FormControl('Powell st',[Validators.required,Validators.minLength(5)])
     }),
     formal:new FormControl(false),
-    foodOptions: new FormArray([])
-  })
+    foodOptions: new FormArray<FormGroup<{name:FormControl,veg:FormControl}>>([])
+  },{updateOn:'blur'})
 
+  addFoodItem()
+  {
+    this.party.controls.foodOptions.push(
+      new FormGroup({
+        name:new FormControl('',[Validators.required]),
+        veg:new FormControl(false)
+      })
+    )
+  }
+  get foodOptions()
+  {
+    return this.party.controls.foodOptions.controls;
+  }
+
+  removeFoodItem(index:number)
+  {
+    this.party.controls.foodOptions.removeAt(index);
+  }
   ngOnInit(): void {
 
-    const place = this.party.controls.address.controls.houseNumber.value;
+    this.party.valueChanges.subscribe((value)=>{
+      console.log("VALUE",value)
+    });
+    this.party.statusChanges.subscribe((status:FormControlStatus)=>{
+      console.log("Status",status)
+    })
+
+  }
+
+  log()
+  {
+    console.log(this.party);
   }
   
 

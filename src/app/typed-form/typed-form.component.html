@@ -1,1 +1,28 @@
-<p>typed-form works!</p>
+<form [formGroup]="party" class="partyform">
+    <!-- Acessing Nested Form Here! -->
+    <div formGroupName="address" class="address">
+        <input placeholder="House Number" formControlName="houseNumber" type="text">
+        <input placeholder="Street No" formControlName="street" type="text">
+    </div>
+    <div>
+        <input type="checkbox" formControlName="formal" name="formal" id="formal">
+        <label for="formal">Formal?</label>
+    </div>
+
+    <!-- Using FormArray -->
+    <div formArrayName="foodOptions">
+        <button (click)="addFoodItem()">Add Food Item</button>
+        
+        <ng-container *ngFor="let option of foodOptions;let i=index">
+            <!-- Binding FormGroup Inside FormArray -->
+            <div [formGroupName]="i">
+                <input placeholder="Name" formControlName="name" type="text">
+                <input type="checkbox" formControlName="veg" name="veg" id="veg">
+                <label for="veg">Veg?</label>
+                <button (click)="removeFoodItem(i)" >x</button>
+            </div>
+        </ng-container>
+    </div>
+
+    <button (click)="log()">Log</button>
+</form>

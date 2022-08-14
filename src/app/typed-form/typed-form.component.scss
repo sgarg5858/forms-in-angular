@@ -1,0 +1,16 @@
+.partyform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .address{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        input{
+            margin: 10px;
+        }
+    }
+}

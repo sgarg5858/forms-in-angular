@@ -13,7 +13,7 @@ export class TypedFormComponent implements OnInit {
 
   party = new FormGroup({
     address: new FormGroup({
-      houseNumber : new FormControl("1234",[Validators.required,minLength(5)]),
+      houseNumber : new FormControl("1234",{validators:[Validators.required],asyncValidators:[minLength(5)]}),
       street: new FormControl('Powell st',[Validators.required,Validators.minLength(5)])
     }),
     formal:new FormControl(false),
@@ -51,7 +51,7 @@ export class TypedFormComponent implements OnInit {
 
   log()
   {
-    console.log(this.party);
+    console.log(this.party.controls.address.controls.houseNumber,this.party.status)
   }
   
 

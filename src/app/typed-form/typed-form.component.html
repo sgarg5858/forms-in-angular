@@ -3,6 +3,14 @@
     <div formGroupName="address" class="address">
         <input placeholder="House Number" formControlName="houseNumber" type="text">
         <span style="color:red"
+        *ngIf=" party.controls?.address?.controls?.houseNumber?.touched && party.controls?.address?.controls?.houseNumber?.status === 'PENDING' ">
+        Loading.....
+       </span>
+       <span style="color:red"
+       *ngIf=" party.controls?.address?.controls?.houseNumber?.touched && party.controls?.address?.controls?.houseNumber?.status !== 'PENDING'  && !party.controls?.address?.controls?.houseNumber?.errors?.['minLength']">
+       Valid INput
+      </span>
+        <span style="color:red"
         *ngIf=" party.controls?.address?.controls?.houseNumber?.touched && party.controls?.address?.controls?.houseNumber?.errors?.['minLength']">
         Min Length is 5
        </span>

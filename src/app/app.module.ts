@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CounterComponent } from './counter/counter.component';
 import { CustomAddressFormComponent } from './custom-address-form/custom-address-form.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { DisableControlDirective } from './disable-control.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     TypedFormComponent,
     CounterComponent,
     CustomAddressFormComponent,
-    SignUpComponent
+    SignUpComponent,
+    DisableControlDirective
   ],
   imports: [
     BrowserModule,

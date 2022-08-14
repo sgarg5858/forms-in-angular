@@ -10,13 +10,14 @@ import { minLength } from '../text-length-validator';
 export class TypedFormComponent implements OnInit {
 
   constructor() { }
+  condition=true;
 
   party = new FormGroup({
     address: new FormGroup({
       houseNumber : new FormControl("1234",{validators:[Validators.required],asyncValidators:[minLength(5)]}),
       street: new FormControl('Powell st',[Validators.required,Validators.minLength(5)])
     }),
-    formal:new FormControl({value:false,disabled:false}),
+    formal:new FormControl(true),
     foodOptions: new FormArray<FormGroup<{name:FormControl,veg:FormControl}>>([])
   },{updateOn:'blur'})
 

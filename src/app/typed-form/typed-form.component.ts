@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormControlStatus, FormGroup, Validators } from '@angular/forms';
-import { minLength5 } from '../text-length-validator';
+import { minLength } from '../text-length-validator';
 
 @Component({
   selector: 'app-typed-form',
@@ -13,7 +13,7 @@ export class TypedFormComponent implements OnInit {
 
   party = new FormGroup({
     address: new FormGroup({
-      houseNumber : new FormControl("1234",[Validators.required,minLength5]),
+      houseNumber : new FormControl("1234",[Validators.required,minLength(5)]),
       street: new FormControl('Powell st',[Validators.required,Validators.minLength(5)])
     }),
     formal:new FormControl(false),
